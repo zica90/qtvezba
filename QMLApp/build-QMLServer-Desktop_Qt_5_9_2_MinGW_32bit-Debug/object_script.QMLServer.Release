@@ -1,0 +1,14 @@
+INPUT(
+./release\main.o
+./release\databasemanager.o
+./release\backend.o
+./release\food.o
+./release\item.o
+./release\racun.o
+./release\factoryracun.o
+./release\dinari.o
+./release\euri.o
+./release\qrc_qml.o
+./release\moc_databasemanager.o
+./release\moc_backend.o
+);

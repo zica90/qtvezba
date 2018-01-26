@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\databasemanager.o
+./debug\backend.o
+./debug\food.o
+./debug\item.o
+./debug\racun.o
+./debug\factoryracun.o
+./debug\dinari.o
+./debug\euri.o
+./debug\qrc_qml.o
+./debug\moc_databasemanager.o
+./debug\moc_backend.o
+);
