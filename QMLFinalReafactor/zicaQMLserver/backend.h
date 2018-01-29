@@ -38,7 +38,7 @@ private:
     QSharedPointer<QObject> qmlObject;
     QScopedPointer<Racun> bill;
 
-    QMap<int,menuItem*> menu;
+    QMap<int,QSharedPointer<menuItem>> menu;
 };
 
 #endif // BACKEND_H

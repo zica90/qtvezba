@@ -5,7 +5,7 @@ Dinari::Dinari()
     data="";
 }
 
-void Dinari::getFinal(const QJsonObject& jo,const QMap<int, menuItem*>& menu)
+void Dinari::getFinal(const QJsonObject& jo,const QMap<int, QSharedPointer<menuItem>>& menu)
 {
 
     QString str="name\tquan.\tprice\n";

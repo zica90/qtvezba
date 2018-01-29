@@ -33,7 +33,7 @@ bool DatabaseManager::insertFood(const QString &id, const QString &name, const Q
     }
 }
 
-bool DatabaseManager::getFood(QMap<int, menuItem*> &menu)
+bool DatabaseManager::getFood(QMap<int, QSharedPointer<menuItem>> &menu)
 {
     QSqlQuery query("SELECT * FROM food");
     int idId = query.record().indexOf("id");
@@ -44,11 +44,11 @@ bool DatabaseManager::getFood(QMap<int, menuItem*> &menu)
        int id = query.value(idId).toInt();
        QString name = query.value(idName).toString();
        double price = query.value(idPrice).toDouble();
-       menu[id] = new Food(id,name,price);
+       menu[id].reset(new Food(id,name,price));
     }
 }
 
-bool DatabaseManager::getDrinks(QMap<int, menuItem *> &menu)
+bool DatabaseManager::getDrinks(QMap<int, QSharedPointer<menuItem>> &menu)
 {
     QSqlQuery query("SELECT * FROM drink");
     int idId = query.record().indexOf("id");
@@ -61,6 +61,6 @@ bool DatabaseManager::getDrinks(QMap<int, menuItem *> &menu)
        QString name = query.value(idName).toString();
        double price = query.value(idPrice).toDouble();
        double size = query.value(idSize).toDouble();
-       menu[id] = new Drink(id,name,price,size);
+       menu[id].reset(new Drink(id,name,price,size));
     }
 }

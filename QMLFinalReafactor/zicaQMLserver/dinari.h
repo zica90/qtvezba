@@ -10,7 +10,7 @@ class Dinari:public Racun
 {
 public:
     Dinari();
-    void getFinal(const QJsonObject& jo,const QMap<int, menuItem*>& menu);
+    void getFinal(const QJsonObject& jo,const QMap<int, QSharedPointer<menuItem>>& menu);
 };
 
 #endif // GOTOVINA_H

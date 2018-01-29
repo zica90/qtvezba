@@ -8,14 +8,15 @@
 #include <food.h>
 #include <QObject>
 #include <QDebug>
+#include <QSharedPointer>
 
 class DatabaseManager
 {
 public:
     DatabaseManager();
     Q_INVOKABLE bool insertFood(const QString &id,const QString &name,const QString &price);
-    bool getFood(QMap<int, menuItem*>& maps);
-    bool getDrinks(QMap<int, menuItem*>& maps);
+    bool getFood(QMap<int, QSharedPointer<menuItem>>& maps);
+    bool getDrinks(QMap<int, QSharedPointer<menuItem>>& maps);
 private:
     QSqlDatabase DB;
 };

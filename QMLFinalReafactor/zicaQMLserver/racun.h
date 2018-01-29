@@ -5,12 +5,13 @@
 #include <QMap>
 #include <QJsonObject>
 #include <menuitem.h>
+#include <QSharedPointer>
 
 class Racun
 {
 public:
     Racun();
-    virtual void getFinal(const QJsonObject& jo,const QMap<int, menuItem*>& menu){}
+    virtual void getFinal(const QJsonObject& jo,const QMap<int, QSharedPointer<menuItem>>& menu){}
     QString getData() const;
 
     void setData(const QString &value);

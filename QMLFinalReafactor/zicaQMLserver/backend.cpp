@@ -9,8 +9,6 @@ BackEnd::BackEnd(QObject *parent):QObject(parent)
 
 BackEnd::~BackEnd()
 {
-    for(auto a:menu)
-        delete a;
 }
 
 QSharedPointer<DatabaseManager> BackEnd::getDBManager() const
