@@ -6,7 +6,7 @@ class Euri:public Racun
 {
 public:
     Euri();
-    void getFinal(const QJsonObject& jo,const QMap<int, Food>& menu);
+    void getFinal(const QJsonObject& jo,const QMap<int, menuItem*>& menu);
 };
 
 #endif // EURI_H

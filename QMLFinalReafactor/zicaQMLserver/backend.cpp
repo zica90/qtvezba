@@ -4,6 +4,13 @@ BackEnd::BackEnd(QObject *parent):QObject(parent)
 {
     DBManager.reset(new DatabaseManager());
     DBManager->getFood(menu);
+    DBManager->getDrinks(menu);
+}
+
+BackEnd::~BackEnd()
+{
+    for(auto a:menu)
+        delete a;
 }
 
 QSharedPointer<DatabaseManager> BackEnd::getDBManager() const
@@ -41,11 +48,9 @@ void BackEnd::sendBill()
     socket->write(QJsonDocument(json).toBinaryData());
 }
 
-void BackEnd::setQObject(QObject *qmlObject)
+void BackEnd::setQObject(QSharedPointer<QObject> qmlObject)
 {
     this->qmlObject=qmlObject;
-    //connect(this,SIGNAL(billRecieved()),this,SLOT(setVisibility()));
-
 }
 
 void BackEnd::showBill(const QString &str)
@@ -63,7 +68,7 @@ void BackEnd::newConnection()
     json["objects"]=menu.size();
     for(auto a:menu)
     {
-         json[QString::number(i++)]=a.toString();
+         json[QString::number(i++)]=a->toString();
     }
 
 

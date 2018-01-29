@@ -3,6 +3,9 @@
 BackEnd::BackEnd(QObject *parent):QObject(parent)
 {
 }
+BackEnd::~BackEnd()
+{
+}
 void BackEnd::connectToServer()
 {
     socket.reset(new QTcpSocket(this));
@@ -38,7 +41,7 @@ void BackEnd::addToBasket(const QString &str)
 
 }
 
-void BackEnd::setQObject(QObject *qmlObject)
+void BackEnd::setQObject(QSharedPointer<QObject> qmlObject)
 {
     this->qmlObject=qmlObject;
 }

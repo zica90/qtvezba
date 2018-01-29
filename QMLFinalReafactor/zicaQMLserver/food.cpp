@@ -1,27 +1,14 @@
 #include "food.h"
 
-Food::Food(const int& id,const QString& name, const double& price)
+Food::Food(const int& id,const QString& name, const double& price):menuItem(id,name,price)
 {
-    this->id=id;
-    this->name=name;
-    this->price=price;
+    this->type="food";
 }
 
 QString Food::getName() const
 {
     return name;
 }
-
-double Food::getPrice() const
-{
-    return price;
-}
-
-int Food::getId() const
-{
-    return id;
-}
-
 
 QString Food::toString() const
 {

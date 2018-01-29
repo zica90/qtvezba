@@ -1,5 +1,5 @@
 #include "databasemanager.h"
-
+#include <drink.h>
 DatabaseManager::DatabaseManager()
 {
    DB = QSqlDatabase::addDatabase("QSQLITE");
@@ -33,7 +33,7 @@ bool DatabaseManager::insertFood(const QString &id, const QString &name, const Q
     }
 }
 
-bool DatabaseManager::getFood(QMap<int, Food> &menu)
+bool DatabaseManager::getFood(QMap<int, menuItem*> &menu)
 {
     QSqlQuery query("SELECT * FROM food");
     int idId = query.record().indexOf("id");
@@ -44,6 +44,23 @@ bool DatabaseManager::getFood(QMap<int, Food> &menu)
        int id = query.value(idId).toInt();
        QString name = query.value(idName).toString();
        double price = query.value(idPrice).toDouble();
-       menu[id] = Food(id,name,price);
+       menu[id] = new Food(id,name,price);
+    }
+}
+
+bool DatabaseManager::getDrinks(QMap<int, menuItem *> &menu)
+{
+    QSqlQuery query("SELECT * FROM drink");
+    int idId = query.record().indexOf("id");
+    int idName = query.record().indexOf("name");
+    int idPrice = query.record().indexOf("price");
+    int idSize = query.record().indexOf("size");
+    while (query.next())
+    {
+       int id = query.value(idId).toInt();
+       QString name = query.value(idName).toString();
+       double price = query.value(idPrice).toDouble();
+       double size = query.value(idSize).toDouble();
+       menu[id] = new Drink(id,name,price,size);
     }
 }

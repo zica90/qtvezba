@@ -19,7 +19,8 @@ public:
     Q_INVOKABLE void connectToServer();
     Q_INVOKABLE void addToBasket(const QString& str);
     Q_INVOKABLE void sendData(const QString& str);
-    void setQObject(QObject* qmlObject);
+    void setQObject(QSharedPointer<QObject> qmlObject);
+    ~BackEnd();
 
 public slots:
     void readData();
@@ -27,7 +28,7 @@ private:
     QScopedPointer<QTcpSocket> socket;
     QMap<int, Food> menuList;
     QMap<int, BasketItems> Basket;
-    QObject* qmlObject;
+    QSharedPointer<QObject> qmlObject;
 };
 
 #endif // BACKEND_H

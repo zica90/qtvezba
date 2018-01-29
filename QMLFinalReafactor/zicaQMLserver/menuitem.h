@@ -5,11 +5,19 @@
 class menuItem
 {
 public:
-    menuItem();
-private:
+    menuItem(const int& id,const QString& name, const double& price);
+    virtual QString getName() const;
+    double getPrice() const;
+    int getId() const;
+    virtual QString toString() const{}
+
+    QString getType() const;
+
+protected:
     int id;
     QString name;
-    int price;
+    double price;
+    QString type;
 };
 
 #endif // MENUITEM_H

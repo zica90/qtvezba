@@ -22,7 +22,8 @@ SOURCES += main.cpp \
     dinari.cpp \
     euri.cpp \
     factoryracun.cpp \
-    racun.cpp
+    racun.cpp \
+    drink.cpp
 
 RESOURCES += qml.qrc
 
@@ -46,4 +47,5 @@ HEADERS += \
     dinari.h \
     euri.h \
     factoryracun.h \
-    racun.h
+    racun.h \
+    drink.h

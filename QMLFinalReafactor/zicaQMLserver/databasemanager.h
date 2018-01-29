@@ -14,7 +14,8 @@ class DatabaseManager
 public:
     DatabaseManager();
     Q_INVOKABLE bool insertFood(const QString &id,const QString &name,const QString &price);
-    bool getFood(QMap<int, Food>& maps);
+    bool getFood(QMap<int, menuItem*>& maps);
+    bool getDrinks(QMap<int, menuItem*>& maps);
 private:
     QSqlDatabase DB;
 };

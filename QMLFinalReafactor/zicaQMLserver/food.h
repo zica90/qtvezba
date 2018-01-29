@@ -1,21 +1,15 @@
 #ifndef FOOD_H
 #define FOOD_H
 #include <QString>
+#include <menuitem.h>
 
-class Food
+class Food:public menuItem
 {
 public:
     Food(const int& id=0,const QString& name="", const double& price=0.0);
 
-    QString getName() const;
-    double getPrice() const;
-    int getId() const;
     QString toString() const;
-
-private:
-    int id;
-    QString name;
-    double price;
+    QString getName() const;
 };
 
 #endif // FOOD_H

@@ -84,7 +84,7 @@ Window {
                                 {
                                     listModelBasket.append({name: txt[1]+"   "+txt[2]})
                                 }
-                                var str=parent.text.substring(0,1)
+                                var str=parent.text.substring(0,4)
                                 backEnd.addToBasket(str)
 
                             }

@@ -17,11 +17,12 @@ class BackEnd:public QObject
     Q_OBJECT
 public:
     explicit BackEnd(QObject *parent=0);
+    ~BackEnd();
     QSharedPointer<DatabaseManager> getDBManager() const;
     Q_INVOKABLE bool insertFoodinDB(const QString &id, const QString &name, const QString &price);
     Q_INVOKABLE void startServer();
     Q_INVOKABLE void sendBill();
-    void setQObject(QObject* qmlObject);
+    void setQObject(QSharedPointer<QObject> qmlObject);
     void showBill(const QString& str);
 
 
@@ -34,10 +35,10 @@ private:
     QScopedPointer<QTcpServer> server;
     QScopedPointer<QTcpSocket> socket;
     QSharedPointer<DatabaseManager> DBManager;
-    QObject* qmlObject;
+    QSharedPointer<QObject> qmlObject;
     QScopedPointer<Racun> bill;
 
-    QMap<int,Food> menu;
+    QMap<int,menuItem*> menu;
 };
 
 #endif // BACKEND_H
